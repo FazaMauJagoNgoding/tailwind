@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latihan Dom</title>
-    <script src="main.js" defer></script>
+    <title>Cart</title>
+    <link rel="stylesheet" href="./output.css">
 </head>
-<body>
-    <button id="plus" onclick="nambah()">plus</button>
-    <button id="minus" onclick="ngurang()">minus</button>
+<body class="flex flex-col w-full min-h-screen items-center justify-center bg-gray-50 gap-10">
+    <div class="flex flex-row bg-white shadow-xl shadow-black/50 p-2.5 rounded-md gap-20 items-center "> <!--Container-->
+        <span class="text-green-500">30$</span>
+        <img id="cart" src="mynaui--cart.png" alt="" srcset="" class="w-5.5 h-5.5 cursor-pointer" onclick="add()">
+    </div>
+    <div class="flex flex-row bg-white shadow-xl shadow-black/50 p-3.5 gap-20 rounded-md">
+        <span class="font-bold">Total</span>
+        <button id="minus">-</button>
+        <span id="price">0$</span>
+        <button >+</button>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
