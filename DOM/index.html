@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="./output.css">
+  <meta charset="UTF-8">
+  <title>Advanced Todo</title>
+  <link rel="stylesheet" href="./output.css">
+  <link rel="stylesheet" href="class.css">
 </head>
-<body class="flex flex-col w-full min-h-screen items-center justify-center bg-gray-50 gap-10">
-    <div class="flex flex-row bg-white shadow-xl shadow-black/50 p-2.5 rounded-md gap-20 items-center "> <!--Container-->
-        <span class="text-green-500">30$</span>
-        <img id="cart" src="mynaui--cart.png" alt="" srcset="" class="w-5.5 h-5.5 cursor-pointer" onclick="add()">
+<body class="bg-gray-100 min-h-screen flex justify-center items-start pt-10">
+
+  <div class="bg-white w-full max-w-md p-6 rounded-2xl shadow-lg">
+
+    <!-- Title -->
+    <h1 class="text-2xl font-bold mb-4 text-center">
+      Todo App
+    </h1>
+
+    <!-- Counter -->
+<div id="counter" class="text-sm text-gray-600 mb-4">
+  Total: <span id="total">0</span> |
+  Selesai: <span id="done">0</span> |
+  Belum: <span id="pending">0</span>
+</div>
+
+
+    <!-- Input Section -->
+    <div class="flex gap-2 mb-4">
+      <input 
+        type="text" 
+        id="taskInput" 
+        placeholder="Masukkan tugas..."
+        class="border px-3 py-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+      <button 
+        id="addBtn"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+      >
+        Tambah
+      </button>
     </div>
-    <div class="flex flex-row bg-white shadow-xl shadow-black/50 p-3.5 gap-20 rounded-md">
-        <span class="font-bold">Total</span>
-        <button id="minus">-</button>
-        <span id="price">0$</span>
-        <button >+</button>
+
+    <!-- Filter Section -->
+    <div class="flex gap-2 mb-4">
+      <button id="filterAll" class="filter-btn bg-gray-200 px-3 py-1 rounded text-sm">
+        Semua
+      </button>
+      <button id="filterDone" class="filter-btn bg-gray-200 px-3 py-1 rounded text-sm">
+        Selesai
+      </button>
+      <button id="filterUndone" class="filter-btn bg-gray-200 px-3 py-1 rounded text-sm">
+        Belum
+      </button>
     </div>
-    <script src="main.js"></script>
+
+    <!-- Task List -->
+    <ul id="taskList" class="space-y-2">
+      <!-- JS akan isi di sini -->
+    </ul>
+
+  </div>
+  <script src="main.js"></script>
 </body>
 </html>

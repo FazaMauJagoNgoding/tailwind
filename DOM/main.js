@@ -1,23 +1,49 @@
-let cartBtn = document.getElementById("cart");
-let priceElement = document.getElementById("price");
-let cartBtnMin = document.getElementById("minus");
+const taskInput = document.getElementById("taskInput");
+const addBtn = document.getElementById("addBtn");
+const taskList = document.getElementById("taskList");
 
 
-let total = 0;
-const hargaProduk = 30; // harga produk
+// append task
+addBtn.addEventListener("click", function () {
+  let nilai = taskInput.value;
+  if (nilai === "") {
+    return;
+  }
+  // create li
+  let li = document.createElement("li");
+  li.textContent = nilai;
+  taskList.append(li);
+  // create input-checkbox
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  li.append(input);
+  // styling task
+  li.style.display = "flex";
+  li.style.flexDirection = "row";
+  li.style.justifyContent = "space-between";
+  taskInput.value = "";
+  counterTotal()
 
-cartBtn.addEventListener("click", function () {
-    total += hargaProduk;
-    priceElement.textContent = total + "$";
+  // check 
+input.addEventListener("change", function(){
+    counterTotal()
+    li.classList.toggle("done")
+})
 });
 
-cartBtnMin.addEventListener("click", function () {
-    if (total < 0) {
-        hargaProduk = 0;
-        total -= 0;
-        priceElement.textContent = total + "$"
-    } else {
-        total -= hargaProduk
-        priceElement.textContent = total + "$"
-    }
-})
+// functcounter
+const total = document.getElementById("total");
+const done = document.getElementById("done");
+const pending = document.getElementById("pending")
+
+function counterTotal() {
+  const totalCount = taskList.children.length;
+  const doneCount = taskList.querySelectorAll("input:checked").length;
+  const pendingCount = totalCount - doneCount;
+
+  total.textContent = totalCount;
+  done.textContent = doneCount;
+  pending.textContent = pendingCount;
+}
+
+
